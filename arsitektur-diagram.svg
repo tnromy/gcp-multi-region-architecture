@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 750" font-family="Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4285F4"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="750" fill="#fff" rx="8"/>
+
+  <!-- Title -->
+  <text x="550" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#202124">Arsitektur Cloud E-Commerce — submission-romifadli</text>
+
+  <!-- Users -->
+  <rect x="30" y="70" width="140" height="50" rx="8" fill="#E8F0FE" stroke="#4285F4" stroke-width="1.5"/>
+  <text x="100" y="92" text-anchor="middle" font-size="11" fill="#1967D2">Pelanggan</text>
+  <text x="100" y="106" text-anchor="middle" font-size="10" fill="#5F6368">Asia Tenggara</text>
+
+  <rect x="930" y="70" width="140" height="50" rx="8" fill="#E8F0FE" stroke="#4285F4" stroke-width="1.5"/>
+  <text x="1000" y="92" text-anchor="middle" font-size="11" fill="#1967D2">Pelanggan</text>
+  <text x="1000" y="106" text-anchor="middle" font-size="10" fill="#5F6368">Eropa</text>
+
+  <!-- Arrows from users to LB -->
+  <line x1="100" y1="120" x2="500" y2="185" stroke="#4285F4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="1000" y1="120" x2="600" y2="185" stroke="#4285F4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Global LB -->
+  <rect x="420" y="155" width="260" height="60" rx="10" fill="#4285F4" stroke="#1A73E8" stroke-width="2"/>
+  <text x="550" y="178" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">Global HTTPS Load Balancer</text>
+  <text x="550" y="195" text-anchor="middle" font-size="10" fill="#E8F0FE">IP: 34.117.33.250 | Port 80 &amp; 443</text>
+
+  <!-- Arrows from LB to backends -->
+  <line x1="480" y1="215" x2="240" y2="290" stroke="#4285F4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="620" y1="215" x2="860" y2="290" stroke="#4285F4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- VPC Box -->
+  <rect x="20" y="260" width="1060" height="420" rx="12" fill="none" stroke="#34A853" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="550" y="280" text-anchor="middle" font-size="13" fill="#34A853" font-weight="bold">VPC: ecommerce-vpc (Custom Mode)</text>
+
+  <!-- Region Asia -->
+  <rect x="40" y="295" width="490" height="370" rx="10" fill="#FFF3E0" stroke="#F9AB00" stroke-width="1.5"/>
+  <text x="285" y="315" text-anchor="middle" font-size="12" font-weight="bold" fill="#E37400">Region: asia-southeast1 (Singapura)</text>
+
+  <!-- Subnet Asia -->
+  <rect x="60" y="325" width="450" height="80" rx="8" fill="#FEF7E0" stroke="#F9AB00" stroke-width="1"/>
+  <text x="285" y="345" text-anchor="middle" font-size="11" fill="#E37400">Subnet: subnet-asia | 10.10.1.0/24</text>
+
+  <!-- MIG Asia -->
+  <rect x="80" y="355" width="410" height="40" rx="6" fill="#fff" stroke="#F9AB00" stroke-width="1"/>
+  <text x="285" y="380" text-anchor="middle" font-size="11" fill="#202124">Managed Instance Group: mig-asia (1–5 instances, autoscaling CPU 60%)</text>
+
+  <!-- Instance Asia -->
+  <rect x="80" y="420" width="195" height="70" rx="6" fill="#E8F5E9" stroke="#34A853" stroke-width="1"/>
+  <text x="177" y="440" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E8E3E">mig-asia-lr3g</text>
+  <text x="177" y="455" text-anchor="middle" font-size="9" fill="#5F6368">e2-micro | Debian 12</text>
+  <text x="177" y="468" text-anchor="middle" font-size="9" fill="#5F6368">Internal: 10.10.1.2</text>
+  <text x="177" y="481" text-anchor="middle" font-size="9" fill="#5F6368">External: 34.124.156.20</text>
+
+  <rect x="295" y="420" width="195" height="70" rx="6" fill="#E8F5E9" stroke="#34A853" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="392" y="440" text-anchor="middle" font-size="10" fill="#5F6368">(autoscaled instances)</text>
+  <text x="392" y="455" text-anchor="middle" font-size="9" fill="#5F6368">e2-micro | Debian 12</text>
+  <text x="392" y="468" text-anchor="middle" font-size="9" fill="#9AA0A6">10.10.1.x</text>
+
+  <!-- Zone Asia -->
+  <text x="285" y="510" text-anchor="middle" font-size="10" fill="#E37400">Zone: asia-southeast1-a</text>
+
+  <!-- Startup script Asia -->
+  <rect x="100" y="525" width="330" height="35" rx="5" fill="#F1F3F4" stroke="#DADCE0" stroke-width="1"/>
+  <text x="265" y="543" text-anchor="middle" font-size="9" fill="#5F6368">Startup: gs://cloud-training/gcpnet/httplb/startup.sh</text>
+  <text x="265" y="555" text-anchor="middle" font-size="9" fill="#5F6368">Apache HTTP Server — E-Commerce App</text>
+
+  <!-- Region Europe -->
+  <rect x="570" y="295" width="490" height="370" rx="10" fill="#EDE7F6" stroke="#7C4DFF" stroke-width="1.5"/>
+  <text x="815" y="315" text-anchor="middle" font-size="12" font-weight="bold" fill="#651FFF">Region: europe-west1 (Belgia)</text>
+
+  <!-- Subnet Europe -->
+  <rect x="590" y="325" width="450" height="80" rx="8" fill="#F3E5F5" stroke="#7C4DFF" stroke-width="1"/>
+  <text x="815" y="345" text-anchor="middle" font-size="11" fill="#651FFF">Subnet: subnet-europe | 10.20.1.0/24</text>
+
+  <!-- MIG Europe -->
+  <rect x="610" y="355" width="410" height="40" rx="6" fill="#fff" stroke="#7C4DFF" stroke-width="1"/>
+  <text x="815" y="380" text-anchor="middle" font-size="11" fill="#202124">Managed Instance Group: mig-europe (1–5 instances, autoscaling CPU 60%)</text>
+
+  <!-- Instance Europe -->
+  <rect x="610" y="420" width="195" height="70" rx="6" fill="#E8F5E9" stroke="#34A853" stroke-width="1"/>
+  <text x="707" y="440" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E8E3E">mig-europe-dmx6</text>
+  <text x="707" y="455" text-anchor="middle" font-size="9" fill="#5F6368">e2-micro | Debian 12</text>
+  <text x="707" y="468" text-anchor="middle" font-size="9" fill="#5F6368">Internal: 10.20.1.2</text>
+  <text x="707" y="481" text-anchor="middle" font-size="9" fill="#5F6368">External: 207.175.171.3</text>
+
+  <rect x="825" y="420" width="195" height="70" rx="6" fill="#E8F5E9" stroke="#34A853" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="922" y="440" text-anchor="middle" font-size="10" fill="#5F6368">(autoscaled instances)</text>
+  <text x="922" y="455" text-anchor="middle" font-size="9" fill="#5F6368">e2-micro | Debian 12</text>
+  <text x="922" y="468" text-anchor="middle" font-size="9" fill="#9AA0A6">10.20.1.x</text>
+
+  <!-- Zone Europe -->
+  <text x="815" y="510" text-anchor="middle" font-size="10" fill="#651FFF">Zone: europe-west1-b</text>
+
+  <!-- Startup script Europe -->
+  <rect x="630" y="525" width="330" height="35" rx="5" fill="#F1F3F4" stroke="#DADCE0" stroke-width="1"/>
+  <text x="795" y="543" text-anchor="middle" font-size="9" fill="#5F6368">Startup: gs://cloud-training/gcpnet/httplb/startup.sh</text>
+  <text x="795" y="555" text-anchor="middle" font-size="9" fill="#5F6368">Apache HTTP Server — E-Commerce App</text>
+
+  <!-- Firewall Rules -->
+  <rect x="60" y="580" width="220" height="70" rx="6" fill="#FCE4EC" stroke="#D93025" stroke-width="1"/>
+  <text x="170" y="598" text-anchor="middle" font-size="10" font-weight="bold" fill="#D93025">Firewall Rules</text>
+  <text x="170" y="613" text-anchor="middle" font-size="9" fill="#5F6368">allow-http-https: tcp:80,443</text>
+  <text x="170" y="626" text-anchor="middle" font-size="9" fill="#5F6368">Source: 0.0.0.0/0 → tag:http-server</text>
+  <text x="170" y="639" text-anchor="middle" font-size="9" fill="#5F6368">allow-health-check: 130.211.0.0/22, 35.191.0.0/16</text>
+
+  <!-- Monitoring -->
+  <rect x="340" y="580" width="220" height="70" rx="6" fill="#E0F2F1" stroke="#00897B" stroke-width="1"/>
+  <text x="450" y="598" text-anchor="middle" font-size="10" font-weight="bold" fill="#00897B">Cloud Monitoring</text>
+  <text x="450" y="613" text-anchor="middle" font-size="9" fill="#5F6368">Dashboard - Submission</text>
+  <text x="450" y="626" text-anchor="middle" font-size="9" fill="#5F6368">4 Charts: CPU, Net In/Out, Disk</text>
+  <text x="450" y="639" text-anchor="middle" font-size="9" fill="#5F6368">Tim IT memantau infrastruktur</text>
+
+  <!-- IAM -->
+  <rect x="620" y="580" width="220" height="70" rx="6" fill="#FFF8E1" stroke="#F9A825" stroke-width="1"/>
+  <text x="730" y="598" text-anchor="middle" font-size="10" font-weight="bold" fill="#F9A825">IAM — Least Privilege</text>
+  <text x="730" y="613" text-anchor="middle" font-size="9" fill="#5F6368">reviewer_googlecloud@dicoding.com</text>
+  <text x="730" y="626" text-anchor="middle" font-size="9" fill="#5F6368">Role: roles/viewer</text>
+  <text x="730" y="639" text-anchor="middle" font-size="9" fill="#5F6368">Auditor eksternal — read-only access</text>
+
+  <!-- Health Check -->
+  <rect x="870" y="580" width="180" height="70" rx="6" fill="#E3F2FD" stroke="#1565C0" stroke-width="1"/>
+  <text x="960" y="598" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565C0">Health Check</text>
+  <text x="960" y="613" text-anchor="middle" font-size="9" fill="#5F6368">http-health-check</text>
+  <text x="960" y="626" text-anchor="middle" font-size="9" fill="#5F6368">Protocol: HTTP, Port: 80</text>
+  <text x="960" y="639" text-anchor="middle" font-size="9" fill="#5F6368">Path: /</text>
+
+  <!-- Legend -->
+  <text x="550" y="735" text-anchor="middle" font-size="10" fill="#9AA0A6">Project: submission-romifadli | Custom VPC: ecommerce-vpc | HTTPS LB + Autoscaling + Monitoring + IAM</text>
+</svg>

@@ -1,0 +1,57 @@
+IP Address: 34.117.33.250
+Project ID: submission-romifadli
+Pricing Calculator Link: https://cloud.google.com/products/calculator/estimate-preview/CiQ5OTQ5NDcyMC04MjUwLTQ5YjktOTZlYy1kYWJiODYwNzg4NGYQAQ==
+
+Rincian Pricing Calculator (dihitung per region, sesuai resource yang berjalan):
+- Compute Engine: 1x e2-micro di Singapore (asia-southeast1) + 1x e2-micro di Belgium (europe-west1), masing-masing boot disk 10 GiB standard persistent disk, 730 jam/bulan.
+- IP Address (Networking): 1 IP ephemeral publik in-use di Singapore + 1 di Belgium (sama dengan jumlah instance yang berjalan).
+- Cloud Load Balancing (Global External Application LB, 2 forwarding rule: HTTP 80 + HTTPS 443): dihitung per region, satu item untuk Singapore dan satu item untuk Belgium.
+- Total estimasi: sekitar $51,24 per bulan.
+
+---
+
+Fungsi/Kegunaan dari Setiap Metric pada Dashboard:
+
+1. CPU Utilization (Line Chart)
+   Mengukur persentase penggunaan CPU pada setiap instance VM.
+   Berguna untuk memantau beban kerja dan memastikan autoscaling
+   bekerja dengan baik saat traffic melonjak (misalnya saat flash sale).
+
+2. Network Bytes Received (Scorecard)
+   Mengukur jumlah byte yang diterima oleh instance dari jaringan per detik.
+   Berguna untuk memantau volume traffic masuk ke aplikasi e-commerce,
+   sehingga tim IT dapat mengidentifikasi lonjakan traffic yang tidak wajar.
+
+3. Disk Read Operations (Stacked Bar Chart)
+   Mengukur jumlah operasi baca disk per detik pada setiap instance.
+   Berguna untuk memantau performa I/O disk dan mendeteksi bottleneck
+   pada storage yang dapat memperlambat waktu respons aplikasi.
+
+4. Network Bytes Sent (Stacked Area Chart)
+   Mengukur jumlah byte yang dikirim oleh instance ke jaringan per detik.
+   Berguna untuk memantau volume data yang dikirim ke pelanggan,
+   membantu mengidentifikasi apakah response time tinggi disebabkan
+   oleh bandwidth yang tidak memadai.
+
+---
+
+Alasan Pemilihan Machine Type, Region, dan Load Balancer Type:
+
+Machine Type: e2-micro
+- Dipilih karena merupakan tipe mesin paling hemat biaya untuk workload
+  ringan. Sesuai dengan permintaan perusahaan untuk menghemat budget.
+- Dengan autoscaling (min 1, max 5 per region), kapasitas akan
+  menyesuaikan secara otomatis saat traffic meningkat.
+
+Region: asia-southeast1 (Singapura) dan europe-west1 (Belgia)
+- asia-southeast1 dipilih karena merupakan region terdekat dengan basis
+  pelanggan terbesar di Asia Tenggara, memberikan latensi rendah.
+- europe-west1 dipilih karena merupakan region dengan biaya kompetitif
+  di Eropa dan terdekat dengan basis pelanggan Eropa.
+- Dua region memenuhi kebutuhan ketersediaan global dan redundansi.
+
+Load Balancer Type: Global External Application Load Balancer (HTTPS)
+- Dipilih karena mendukung distribusi traffic secara global ke backend
+  di multiple region, sehingga pelanggan diarahkan ke instance terdekat.
+- Mendukung protokol HTTPS untuk keamanan data pelanggan e-commerce.
+- Terintegrasi dengan Google Cloud CDN dan health check untuk keandalan.
